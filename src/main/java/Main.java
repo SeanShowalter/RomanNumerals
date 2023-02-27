@@ -1,4 +1,7 @@
 import java.util.Scanner;
+/*
+    Goal of this project is to convert Roman Numerals to Arabic Numerals, and vice verse
+ */
 public class Main {
     public static void main(String[] args) {
 
