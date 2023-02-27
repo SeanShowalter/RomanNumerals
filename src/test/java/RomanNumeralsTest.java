@@ -4,31 +4,14 @@ import org.junit.jupiter.api.Test;
 
 class RomanNumeralsTest {
     // This test will see if the constructor can be created with a String
-    @Test
-    public void constructor_is_string() {
-        // Arrange: set up the required objects
-        String expected = "XIV";
-        RomanNumerals rn = new RomanNumerals(expected);
-        String actual = rn.romanNumerals;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void constructor_is_integer() {
-        // Arrange:
-        Integer expected = 2500;
-        RomanNumerals rn = new RomanNumerals(expected);
-        Integer actual = rn.arabicNumerals;
-        assertEquals(expected.intValue(),actual.intValue());
-    }
 
     @Test
     public void convert_romanNumeral_15() {
+        RomanNumerals rn = new RomanNumerals();
         // Arrange:
         String romanNumeral = "XV";
-        RomanNumerals rn = new RomanNumerals(romanNumeral);
         Integer expected = 15;
-        Integer actual = rn.arabicNumerals;
+        Integer actual = rn.convertRomanToArabic(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
@@ -37,10 +20,10 @@ class RomanNumeralsTest {
     @Test
         public void convert_romanNumeral_3500() {
             // Arrange:
+            RomanNumerals rn = new RomanNumerals();
             String romanNumeral = "MMMD";
-            RomanNumerals rn = new RomanNumerals(romanNumeral);
             Integer expected = 3500;
-            Integer actual = rn.arabicNumerals;
+            Integer actual = rn.convertRomanToArabic(romanNumeral);
 
             // Assert
             assertEquals(expected, actual);
@@ -49,10 +32,10 @@ class RomanNumeralsTest {
     @Test
     public void convert_romanNumeral_2753() {
         // Arrange:
+        RomanNumerals rn = new RomanNumerals();
         String romanNumeral = "MMDCCLIII";
-        RomanNumerals rn = new RomanNumerals(romanNumeral);
         Integer expected = 2753;
-        Integer actual = rn.arabicNumerals;
+        Integer actual = rn.convertRomanToArabic(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
@@ -61,13 +44,31 @@ class RomanNumeralsTest {
     @Test
     public void convert_romanNumeral_1() {
         // Arrange:
+        RomanNumerals rn = new RomanNumerals();
         String romanNumeral = "I";
-        RomanNumerals rn = new RomanNumerals(romanNumeral);
         Integer expected = 1;
-        Integer actual = rn.arabicNumerals;
+        Integer actual = rn.convertRomanToArabic(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
     }
+    @Test
+    public void arabic_To_Roman_10() {
+        RomanNumerals rn = new RomanNumerals();
+        int arabicNumeral = 10;
+        String expected = "X";
+        String actual = rn.convertArabicToRoman(arabicNumeral);
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void arabic_To_Roman_1023() {
+        RomanNumerals rn = new RomanNumerals();
+        int arabicNumeral = 1023;
+        String expected = "MXXIII";
+        String actual = rn.convertArabicToRoman(arabicNumeral);
+        assertEquals(expected,actual);
+    }
+
 
 }
