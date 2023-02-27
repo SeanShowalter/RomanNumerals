@@ -1,4 +1,3 @@
-package main.java;
 import java.util.*;
 
 public class RomanNumerals {
@@ -46,11 +45,9 @@ public class RomanNumerals {
             StringBuilder a = new StringBuilder();
             if (i != chars.length -1) {
                 // combine a and b into one string and see if it is in the table
-                StringBuilder b = new StringBuilder();
                 a.append(chars[i]);
-                b.append(chars[i]);
-                b.append(chars[i + 1]);
-                String str = b.toString();
+                String str = String.valueOf(chars[i]) +
+                        chars[i + 1];
                 Integer match = this.getArabicNumeral(str);
                 if (match != null) {
                     //System.out.println("String matched: " + str);
@@ -78,15 +75,15 @@ public class RomanNumerals {
     }
 
 
-    public void printTable() {
-        Iterator<Map.Entry<String, Integer>> entrySet = this.map.entrySet().iterator();
-
-        while (entrySet.hasNext()) {
-            Map.Entry<String, Integer> entry = entrySet.next();
-            System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
-
-        }
-    }
+//    public void printTable() {
+//        Iterator<Map.Entry<String, Integer>> entrySet = this.map.entrySet().iterator();
+//
+//        while (entrySet.hasNext()) {
+//            Map.Entry<String, Integer> entry = entrySet.next();
+//            System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
+//
+//        }
+//    }
 
     // Looks up value of Roman Numeral and returns its Arabic Number
     public Integer getArabicNumeral(String romanNumeral) {
